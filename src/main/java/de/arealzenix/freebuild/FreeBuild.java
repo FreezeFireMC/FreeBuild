@@ -2,6 +2,7 @@ package de.arealzenix.freebuild;
 
 import de.arealzenix.freebuild.commands.SetSpawnCommand;
 import de.arealzenix.freebuild.commands.FlyCommand;
+import de.arealzenix.freebuild.commands.SpawnCommand;
 import de.arealzenix.freebuild.locations.LocationInterface;
 import de.arealzenix.freebuild.locations.LocationRepository;
 import de.chaos.mc.serverapi.api.ServerAPI;
@@ -33,6 +34,7 @@ public final class FreeBuild extends JavaPlugin {
 
     private void init(){
         getCommand("setspawn").setExecutor(new SetSpawnCommand(locationInterface));
+        getCommand("spawn").setExecutor(new SpawnCommand(locationInterface));
         getCommand("fly").setExecutor(new FlyCommand());
     }
 

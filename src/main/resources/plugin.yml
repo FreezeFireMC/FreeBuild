@@ -12,3 +12,6 @@ commands:
     permission: freebuild.fly
     permission-message: ""
   setspawn:
+    permission-message: ""
+    permission: freebuild.admin
+  spawn:

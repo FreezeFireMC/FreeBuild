@@ -19,7 +19,7 @@ public class SetSpawnCommand implements CommandExecutor {
         if(sender instanceof Player){
             Player player = (Player) sender;
 
-            if(player.hasPermission("freebuild.setspawn")){
+            if(player.hasPermission("freebuild.admin")){
                 locationInterface.addLocation("spawn", player.getLocation());
                 locationInterface.getLocation("spawn");
                 return true;
