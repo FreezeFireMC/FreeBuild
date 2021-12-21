@@ -1,6 +1,7 @@
 package de.arealzenix.freebuild;
 
-import de.arealzenix.freebuild.commands.AddWarpCommand;
+import de.arealzenix.freebuild.commands.SetSpawnCommand;
+import de.arealzenix.freebuild.commands.FlyCommand;
 import de.arealzenix.freebuild.locations.LocationInterface;
 import de.arealzenix.freebuild.locations.LocationRepository;
 import de.chaos.mc.serverapi.api.ServerAPI;
@@ -26,7 +27,13 @@ public final class FreeBuild extends JavaPlugin {
 
         instance = this;
 
-        getCommand("addwarp").setExecutor(new AddWarpCommand(locationInterface));
+        init();
+
+    }
+
+    private void init(){
+        getCommand("setspawn").setExecutor(new SetSpawnCommand(locationInterface));
+        getCommand("fly").setExecutor(new FlyCommand());
     }
 
     @Override

@@ -67,7 +67,6 @@ public class ScoreboardManager {
         objective.getScore("§1 ").setScore(3);
         objective.getScore("§3").setScore(0);
 
-
         PlayerScoreboard playerScorebaord = PlayerScoreboard.builder()
                 .uuid(player.getUniqueId())
                 .scoreboard(scoreboard)

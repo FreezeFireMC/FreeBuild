@@ -1,6 +1,5 @@
 package de.arealzenix.freebuild.commands;
 
-import de.arealzenix.freebuild.FreeBuild;
 import de.arealzenix.freebuild.locations.LocationInterface;
 import de.chaos.mc.serverapi.utils.stringLibary.AbstractMessages;
 import org.bukkit.command.Command;
@@ -8,9 +7,9 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class AddWarpCommand implements CommandExecutor {
-    private LocationInterface locationInterface;
-    public AddWarpCommand(LocationInterface locationInterface) {
+public class SetSpawnCommand implements CommandExecutor {
+    private final LocationInterface locationInterface;
+    public SetSpawnCommand(LocationInterface locationInterface) {
         this.locationInterface = locationInterface;
     }
 
@@ -20,12 +19,15 @@ public class AddWarpCommand implements CommandExecutor {
         if(sender instanceof Player){
             Player player = (Player) sender;
 
-            locationInterface.addLocation("Warptest", player.getLocation());
-            locationInterface.getLocation("Warptest");
-            return true;
+            if(player.hasPermission("freebuild.setspawn")){
+                locationInterface.addLocation("spawn", player.getLocation());
+                locationInterface.getLocation("spawn");
+                return true;
+            }
         } else {
             sender.sendMessage(AbstractMessages.BEAPLAYER);
             return false;
         }
+        return false;
     }
 }
