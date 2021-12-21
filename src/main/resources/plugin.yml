@@ -1,0 +1,5 @@
+name: FreezeFire-Freebuild
+version: '${project.version}'
+main: de.arealzenix.freebuild.FreeBuild
+api-version: 1.18
+authors: [ ARealZenix, Chaos ]
