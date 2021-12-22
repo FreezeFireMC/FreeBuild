@@ -1,17 +1,15 @@
-name: FreezeFire-Freebuild
+name: Freebuild
 version: '${project.version}'
 main: de.arealzenix.freebuild.FreeBuild
 api-version: 1.18
-authors: [ ARealZenix, Chaos ]
+authors: [ ARealZenix, Chaoshero5567 ]
 
 depend:
   - ServerAPI
-
 commands:
-  fly:
-    permission: freebuild.fly
-    permission-message: ""
-  setspawn:
-    permission-message: ""
-    permission: freebuild.admin
+  warp:
+    description: open the warp menu or get teleport you self to an warp
+  addWarp:
+    description: add an warp location
   spawn:
+    description: teleport you to spawn
