@@ -58,7 +58,7 @@ public class WarpCommand implements CommandExecutor {
                    player1.sendMessage(freeBuildPlayerLanguage.getSuccesfullyTeleported());
                    player1.closeInventory();
                });
-               menu.additem(12, new ItemBuilder(Material.END_STONE).name(freeBuildPlayerLanguage.endItem).itemStack(), player1 -> {
+               menu.additem(14, new ItemBuilder(Material.END_STONE).name(freeBuildPlayerLanguage.endItem).itemStack(), player1 -> {
                    player1.teleport(locationInterface.getLocation("end"));
                    player1.sendMessage(freeBuildPlayerLanguage.getSuccesfullyTeleported());
                    player1.closeInventory();

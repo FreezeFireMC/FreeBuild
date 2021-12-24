@@ -31,7 +31,7 @@ public class ScoreboardManager {
                     PlayerScoreboard playerScorebaord = playerScorebaordHashMap.get(uuid);
                     Objective objective = playerScorebaord.getScoreboard().getObjective("Lobby");
                     Player player = Bukkit.getPlayer(uuid);
-                    playerScorebaord.getCoins().setSuffix("§b" + String.valueOf(FreeBuild.getInstance().getServerAPI().getCoinsInterface().getCoins(player.getUniqueId())));
+                    playerScorebaord.getCoins().setSuffix("§b" + FreeBuild.getInstance().getCoinsInterface().getCoins(player.getUniqueId()));
                     objective.getScore(ChatColor.DARK_RED.toString()).setScore(4);
                     objective.getScore(ChatColor.AQUA.toString()).setScore(1);
                 }
@@ -51,16 +51,32 @@ public class ScoreboardManager {
         if (scoreboard.getTeam(player.getName() + ".2") != null) {
             scoreboard.getTeam(player.getName() + ".2").unregister();
         }
+        if (scoreboard.getTeam(player.getName() + ".3") != null) {
+            scoreboard.getTeam(player.getName() + ".3").unregister();
+        }
 
         Team coins = scoreboard.registerNewTeam(player.getName() + ".1");
+        Team kills = scoreboard.registerNewTeam(player.getName() + ".2");
+        Team deaths = scoreboard.registerNewTeam(player.getName() + ".3");
         coins.setPrefix("§8» §b");
-        coins.setSuffix("§b" + String.valueOf(FreeBuild.getInstance().getServerAPI().getCoinsInterface().getCoins(player.getUniqueId())));
+        coins.setSuffix("§b" + FreeBuild.getInstance().getCoinsInterface().getCoins(player.getUniqueId()));
         coins.addEntry(ChatColor.DARK_RED.toString());
-        objective.getScore("§0").setScore(6);
-        objective.getScore("§cCoins:").setScore(5);
-        objective.getScore(ChatColor.DARK_RED.toString()).setScore(4);
-        objective.getScore("§1 ").setScore(3);
-        objective.getScore("§3").setScore(0);
+        kills.setPrefix("§8» §b");
+        kills.setSuffix("§b" + FreeBuild.getInstance().getCoinsInterface().getCoins(player.getUniqueId()));
+        kills.addEntry(ChatColor.BLUE.toString());
+        deaths.setPrefix("§8» §b");
+        deaths.setSuffix("§b" + FreeBuild.getInstance().getCoinsInterface().getCoins(player.getUniqueId()));
+        deaths.addEntry(ChatColor.BLACK.toString());
+        objective.getScore("§0").setScore(10);
+        objective.getScore("§cCoins:").setScore(0);
+        objective.getScore(ChatColor.DARK_RED.toString()).setScore(8);
+        objective.getScore("§1 ").setScore(7);
+        objective.getScore("§cKills:").setScore(6);
+        objective.getScore(ChatColor.BLUE.toString()).setScore(5);
+        objective.getScore("§1 ").setScore(4);
+        objective.getScore("§cDeaths:").setScore(3);
+        objective.getScore(ChatColor.BLACK.toString()).setScore(2);
+        objective.getScore("§1 ").setScore(1);
 
         PlayerScoreboard playerScorebaord = PlayerScoreboard.builder()
                 .uuid(player.getUniqueId())

@@ -1,7 +1,7 @@
 package de.arealzenix.freebuild.utils.megaUtils.menu;
 
-import de.chaos.mc.lobbysystem.utils.megaUtils.itemskulls.ItemSkullFactory;
-import de.chaos.mc.lobbysystem.utils.megaUtils.itemstacks.ItemStackFactory;
+import de.arealzenix.freebuild.utils.megaUtils.itemskulls.ItemSkullFactory;
+import de.arealzenix.freebuild.utils.megaUtils.itemstacks.ItemStackFactory;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -59,7 +59,7 @@ public class PagedMenu extends Menu
 			if (item != null) super.additem(item);
 		}
 		for (int i = effectiveSize; i < effectiveSize + 9; i++)
-			super.additem(i, itemStackFactory.createItemStack(Material.STAINED_GLASS_PANE, " ", 1, 7), null);
+			super.additem(i, itemStackFactory.createItemStack(Material.GRAY_STAINED_GLASS_PANE, " ", 1, 1), null);
 
 		// super.additem(i, this.createItem(Material.STAINED_GLASS, " ", 1, 7), null);
 

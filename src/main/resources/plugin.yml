@@ -2,10 +2,8 @@ name: Freebuild
 version: '${project.version}'
 main: de.arealzenix.freebuild.FreeBuild
 api-version: 1.18
+prefix: FreeBuild-System
 authors: [ ARealZenix, Chaoshero5567 ]
-
-depend:
-  - ServerAPI
 commands:
   warp:
     description: open the warp menu or get teleport you self to an warp

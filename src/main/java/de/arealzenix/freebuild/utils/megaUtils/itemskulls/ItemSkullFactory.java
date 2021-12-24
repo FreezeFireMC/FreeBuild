@@ -22,7 +22,7 @@ public class ItemSkullFactory {
         PropertyMap propertyMap = profile.getProperties();
         byte[] encodedData = base64.encode(String.format("{textures:{SKIN:{url:\"%s\"}}}", url).getBytes());
         propertyMap.put("textures", new Property("textures", new String(encodedData)));
-        ItemStack head = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
+        ItemStack head = new ItemStack(Material.PLAYER_HEAD, 1, (short) 3);
         ItemMeta headMeta = head.getItemMeta();
         Class<?> headMetaClass = headMeta.getClass();
         itemSkullReflections.getField(headMetaClass, "profile", GameProfile.class).set(headMeta, profile);
@@ -36,7 +36,7 @@ public class ItemSkullFactory {
 	}
 	
 	public ItemStack getPlayerSkull(String name, String displayName, String... lore) {
-        ItemStack itemStack = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
+        ItemStack itemStack = new ItemStack(Material.PLAYER_HEAD, 1, (short) 3);
         SkullMeta meta = (SkullMeta) itemStack.getItemMeta();
         meta.setOwner(name);
         
